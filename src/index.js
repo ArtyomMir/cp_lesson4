@@ -1,14 +1,21 @@
-document.addEventListener('DOMContentLoaded',setup)
+import { MiniMaple } from './miniMaple.js';
 
-function setup() {
-    document.getElementById('demoButton').onclick = addSomething;
-}
+const mm = new MiniMaple();
 
-function addSomething(){
-    const someDummyDiv = document.createElement('div');
-    someDummyDiv.classList.add('generated');
-    const count = document.getElementsByClassName('generated').length;
-    someDummyDiv.innerHTML = `I was created by JS! There are already ${count} of my friends!`;
-    const container = document.getElementById('container');
-    container.appendChild(someDummyDiv);
-}
+// Обработчик нажатия кнопки
+document.getElementById('run').addEventListener('click', () => {
+  const expr = document.getElementById('expr').value.trim();       // выражение
+  const variable = document.getElementById('variable').value.trim(); // переменная
+
+  if (!expr || !variable) {
+    document.getElementById('result').textContent = 'Введите выражение и переменную';
+    return;
+  }
+
+  try {
+    const result = mm.diff(expr, variable);
+    document.getElementById('result').textContent = result;
+  } catch (err) {
+    document.getElementById('result').textContent = 'Ошибка: ' + err.message;
+  }
+});
