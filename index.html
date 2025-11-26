@@ -1,21 +1,16 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Lesson 4</title>
-    <meta charset="UTF-8"/>
-
-    <script src="src/index.js" type="module"></script>
+  <meta charset="UTF-8" />
+  <title>Symbolic Diff</title>
 </head>
-
 <body>
-<h1>Implement the symbolic diff here</h1>
-<div id="container">
+  <h2>Symbolic Differentiation</h2>
+  <input id="expr" placeholder="Expression (e.g. 4*x^3 - x^2)">
+  <input id="variable" placeholder="Variable (e.g. x)">
+  <button id="run">Differentiate</button>
+  <p>Result: <span id="result"></span></p>
 
-</div>
-<div>
-    <button id="demoButton">
-        Add something
-    </button>
-</div>
+  <script type="module" src="./src/index.js"></script>
 </body>
 </html>
